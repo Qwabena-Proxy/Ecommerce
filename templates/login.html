@@ -1,0 +1,40 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'assets/css/login.css' %}" type="text/css" media="all" />
+<div class="bg-gradient-to-b overflow-y-auto from-sky-600 via-black to-sky-950 flex h-screen py-20 px-0"><!-- background controller -->
+    <div class="mx-2 md:mx-40 w-screen flex justify-center ">
+        <div class="w-full lg:w-1/2 px-9 md:px-30 ">
+            <div class=" flex justify-center py-8 ">
+                <h1 class="text-6xl font-bold text-white">Login</h1>
+            </div>
+            <div class=" pt-6">
+                <div class="grid grid-cols-1"><!-- input section -->
+                    <div class="mb-2" style="text-align: center;">
+                        {% for message in messages %}
+                        <h2 style="color: red;">{{message}}</h2>
+                        {% endfor %}
+                    </div>
+                    <div class="flex justify-center" style="justify-items: center;">
+                        <form class= "md:w-10/12" style="text-align: center;" method="POST" action="/">
+                            {% csrf_token %}
+                            <input class="textCustom" type="text" name="username" placeholder="Username" required><br>
+                            <input class="textCustom" type="password" name="password" placeholder="Password" required><br>
+                            <input class="mb-4 border-2 w-28 md:w-30 py-2 hover:bg-transparent  bg-black text-white rounded-3xl" type="submit" value="Login">
+                        </form>
+                    </div>
+                    <div class="md:text-lg font-medium md:font-semibold text-white" style="text-align: center;">
+                        <p class="mb-4"><a class="" href="#">Forgot Password?</a></p>
+                        <p class="mb-4">— Or Sign In With —</p>
+                        <ul class="flex justify-center mb-4">
+                            <li ><a href="#"><img class="w-8" src="{% static 'assets/images/icons/google.png' %}" alt="google"></a></li>
+                            <li ><a href="#"><img class="w-8" src="{% static 'assets/images/icons/fb.png' %}" alt="fb"></a></li>
+                            <li ><a href="#"><img class="w-8" src="{% static 'assets/images/icons/instagram.png' %}" alt="instagram"></a></li>
+                            <li ><a href="#"><img class="w-8" src="{% static 'assets/images/icons/twitter.png' %}" alt="twitter"></a></li>
+                            <li ><a href="#"><img class="w-8" src="{% static 'assets/images/icons/apple.png' %}" alt="apple"></a></li>
+                        </ul>
+                        <p>Don't have an account? <a href="signup" class="underline">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
