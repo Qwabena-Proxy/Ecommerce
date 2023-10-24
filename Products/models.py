@@ -3,12 +3,28 @@ from datetime import datetime
 import requests
 
 # Create your models here.
+class MachineCategory(models.Model):
+    name = models.CharField(max_length= 50)
+    
+    def __str__(self):
+        return self.name
+    
+class MachineBrand(models.Model):
+    name = models.CharField(max_length= 50)
+    
+    def __str__(self):
+        return self.name
+    
 class Machine(models.Model):
     machineName = models.CharField(max_length=50)
-    machinePrice = models.IntegerField(blank= False)
+    machinePrice = models.DecimalField(default= 0, decimal_places= 2, max_digits= 6, null= False, blank= False)
     machineDescription = models.CharField(max_length=50000)
     machineNegotiatable= models.BooleanField(default= False)
     machineImage= models.ImageField(null= False, blank= False, upload_to= 'images/')
+    machineCategory = models.ForeignKey(MachineCategory, on_delete= models.CASCADE, default= 1)
+    machineBrand = models.ForeignKey(MachineBrand, on_delete= models.CASCADE, default= 1)
+    is_sale = models.BooleanField(default= False)
+    sale_price = models.DecimalField(default= 0, decimal_places= 2, max_digits= 6)
     user = models.CharField(max_length=1000, default='admin')
     dt = models.DateTimeField(default= datetime.now, blank= True)
 
@@ -17,3 +33,10 @@ class Machine(models.Model):
         price= self.machinePrice
         user = self.user
         return f'{name}..[{price}] {user}'
+    
+class BrandImages(models.Model):
+    brandName= models.ForeignKey(MachineBrand, on_delete= models.CASCADE, default= 1)
+    brandImage= models.ImageField(null= False, blank= False, upload_to= 'brand/')
+
+    def __str__(self):
+        return f'{self.brandName}'

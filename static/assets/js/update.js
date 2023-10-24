@@ -9,3 +9,19 @@ function updatecheckbox(){
     }
     console.log(document.querySelector('#fid').value)
 }
+
+
+function updateImagePreview(event) {
+    const imageInput = event.target;
+    const previewImage = document.getElementById('preview-image');
+    
+    if (imageInput.files && imageInput.files[0]) {
+      const reader = new FileReader();
+      
+      reader.onload = function (e) {
+        previewImage.src = e.target.result;
+      }
+      
+      reader.readAsDataURL(imageInput.files[0]);
+    }
+  }

@@ -1,6 +1,6 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'assets/css/login.css' %}" type="text/css" media="all" />
-<div class="bg-gradient-to-b overflow-y-auto from-sky-600 via-black to-sky-950 flex h-screen py-20 px-0"><!-- background controller -->
+<div class="bg-gradient-to-b overflow-y-auto from-[#4e4efa88] via-black to-[#4e4ffa] flex h-screen py-20 px-0"><!-- background controller -->
     <div class="mx-2 md:mx-40 w-screen flex justify-center ">
         <div class="w-full lg:w-1/2 px-9 md:px-30 ">
             <div class=" flex justify-center py-8 ">
@@ -14,7 +14,7 @@
                         {% endfor %}
                     </div>
                     <div class="flex justify-center" style="justify-items: center;">
-                        <form class= "md:w-10/12" style="text-align: center;" method="POST" action="/">
+                        <form class= "md:w-10/12" style="text-align: center;" method="POST" action="{% url 'login' %}">
                             {% csrf_token %}
                             <input class="textCustom" type="text" name="username" placeholder="Username" required><br>
                             <input class="textCustom" type="password" name="password" placeholder="Password" required><br>
@@ -31,7 +31,6 @@
                             <li ><a href="#"><img class="w-8" src="{% static 'assets/images/icons/twitter.png' %}" alt="twitter"></a></li>
                             <li ><a href="#"><img class="w-8" src="{% static 'assets/images/icons/apple.png' %}" alt="apple"></a></li>
                         </ul>
-                        <p>Don't have an account? <a href="signup" class="underline">Sign Up</a></p>
                     </div>
                 </div>
             </div>

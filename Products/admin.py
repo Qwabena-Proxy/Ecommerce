@@ -3,3 +3,6 @@ from .models import *
 
 # Register your models here.
 admin.site.register(Machine)
+admin.site.register(MachineCategory)
+admin.site.register(MachineBrand)
+admin.site.register(BrandImages)

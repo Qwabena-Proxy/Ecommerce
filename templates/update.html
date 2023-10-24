@@ -1,0 +1,54 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'assets/css/login.css' %}" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css" media="all" />
+
+<div class="bg-gradient-to-b overflow-y-auto from-[#4e4efa88] via-black to-[#4e4ffa] flex h-screen  px-0"><!-- background controller -->
+    <div class="w-full">
+        <nav class=" md:mt-7 flex justify-end">
+            <div class="flex py-4 pr-4 font-bold text-white">
+                <a class="text-white mr-2 md:mr-4  hover:transition ease-in-out duration-300 transform hover:scale-110" href="{% url 'index' %}">Home</a>              
+            </div>
+        </nav>
+        <div class="mx-2 md:mx-10 w-screen flex justify-center ">
+            <div class="w-full lg:w-1/2  md:px-30 ">
+                <div class=" flex justify-center py-8 ">
+                    <h1 class="text-6xl font-bold text-white">Upadate Product {{product.id}}</h1>
+                </div>
+                <div class=" pt-6">
+                    <div class="grid grid-cols-1"><!-- input section -->
+                        <div class="flex justify-center" style="justify-items: center;">
+                            <form class= "md:w-10/12" style="text-align: center;" method="POST" action="update_task" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <input class="textCustom" type="text" name="machineName" placeholder="Product name" value="{{product.machineName}}" required><br>
+                                <input class="textCustom" type="text" name="machinePrice" placeholder="Product price" value="{{product.machinePrice}}" required><br>
+                                <textarea class="mb-4 rounded-3xl px-5 text-white bg-[#ffffff14] border-2 border-transparent hover:border-white hover:border-opacity-30 text-center md:w-1/2 md:h-52 py-1 resize-none h-48" name="machineDescription" placeholder="Product description" required>{{product.machineDescription}}</textarea><br>
+                                <input class="mb-4 w-9" type="checkbox" name="machineNegotiatable" value="no" onclick="updatecheckbox()" id="fid" checked><span class="text-white">Product negotiatable</span><br>
+                                <br>
+                                <div class="bg-transparent w-100 h-100 flex items-center justify-center">
+                                    <img class="max-h-full max-w-full" id="preview-image" src="{{product.machineImage.url}}" alt="Image">
+                                  </div>
+                                  <br>
+                                <input type="file" style="color: white; margin-bottom: 5px;" name="machineImage" id="image-input" accept="image/*" onchange="updateImagePreview(event)""><br>
+                                <select class="textCustom" aria-label="Default select example" name="machineCategory">
+                                    <option selected value="{{product.machineCategory}}">{{product.machineCategory}}</option><!-- /.option-->
+                                    {% for category in categorys %}
+                                    <option class="text-black" value="{{category}}">{{category}}</option><!-- /.option-->
+                                    {% endfor %}
+                                  </select><br>
+                                  <select class="textCustom" aria-label="Default select example" name="machineBrand">
+                                    <option selected value="{{product.machineBrand}}">{{product.machineBrand}}</option><!-- /.option-->
+                                    {% for brand in brands %}
+                                    <option class="text-black" value="{{brand}}">{{brand}}</option><!-- /.option-->
+                                    {% endfor %}
+                                  </select><br>
+                                <input class="mb-4 border-2 w-28 md:w-30 py-2 hover:bg-transparent  bg-black text-white rounded-3xl" type="submit" value="Update">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>       
+</div>
+
+<script src="{% static 'assets/js/Update.js' %}"></script>

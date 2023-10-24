@@ -1,0 +1,7 @@
+{"scripts": {
+  "dev": "tailwindcss -i ../static/assets/css/input.css -o ../static/assets/css/login.css --watch"
+},
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}

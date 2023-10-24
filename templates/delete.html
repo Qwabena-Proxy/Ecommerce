@@ -1,0 +1,28 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'assets/css/login.css' %}" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css" media="all" />
+
+<div class="bg-gradient-to-b overflow-y-auto from-sky-600 via-black to-sky-950  h-screen"><!-- background controller -->
+    <div class="w-full h-full md:w-full px-3 md:px-30 ">
+        <div class=" flex justify-center  py-8">
+            <h1 class="text-4xl md:text-6xl font-bold text-white">Are you sure?</h1>
+        </div>
+        <div class=" pt-6 h-full">
+                <div class="h-full flex justify-center text-center" style="justify-items: center;">
+                    <form class= "py-6 w-full md:w-10/12 h-full" method="POST" action="delete_task">
+                        {% csrf_token %}
+                        <p class="text-white ">Dear {{user.username}},Are you sure you want to delete the prduct {{product.machineName}}?</p>
+                        <br>
+                        <div class="bg-transparent w-100 h-100 flex items-center justify-center">
+                            <img class="max-h-full max-w-full" id="preview-image" src="{{product.machineImage.url}}" alt="Image">
+                        </div>
+                        <br>
+                        <input class="mt-5  border-2 px-2 py-1.5 md:px-4 hover:bg-transparent  bg-[#9C1616] text-white rounded-3xl" type="submit" value="Yes, am sure">
+                        <a href="{% url 'index' %}" class="ml-4 border-2 md:px-4 py-2 px-2  hover:bg-transparent  bg-[#514747] text-white rounded-3xl">No, take me back</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
