@@ -182,17 +182,15 @@
 											{% else %}
 											<div class="featured-model-info">
 												<p>
-													<strong> Category:</strong> {{machine.machineCategory}}&nbsp;&nbsp;
-													 <strong> Brand:</strong> {{machine.machineBrand}}
+													<h2><a href="#">{{machine.machineName}}</a></h2>
 												</p>
 											</div>
 											{% endif %}
 										</div>
 										<div class="featured-cars-txt">
-											<h2><a href="#">{{machine.machineName}}</a></h2>
 											<strike><h3>${{machine.machinePrice}}</h3></strike>
 											<p>
-												{{machine.machineDescription}} 
+												{{machine.machineDescription|truncatewords:4}}  
 											</p>
 										</div>
 									</div>
@@ -209,8 +207,7 @@
 										{% if user.is_authenticated %}
 										<div class="featured-model-info">
 											<p>
-												<strong> Category:</strong> {{result.machineCategory}}
-												<strong> Brand:</strong> {{result.machineBrand}}<br>
+												<h2><a href="#">{{result.machineName}}</a></h2>
 												<!-- Sale badge-->
 												<a class="badge text-white" style="background-color: rgb(14, 221, 14);" href="update_task/{{result.id}}/{{result.machineName}}">Update</a> 
 												<a class="badge bg-red text-white" style="background-color: rgb(221, 14, 14);" href="delete_task/{{result.id}}/{{result.machineName}}">Delete</a> 
@@ -219,17 +216,15 @@
 										{% else %}
 										<div class="featured-model-info">
 											<p>
-												<strong> Category:</strong> {{result.machineCategory}}&nbsp;&nbsp;
-												<strong> Brand:</strong> {{result.machineBrand}}
+												<h2><a href="#">{{result.machineName}}</a></h2>
 											</p>
 										</div>
 										{% endif %}
 									</div>
 									<div class="featured-cars-txt">
-										<h2><a href="#">{{result.machineName}}</a></h2>
 										<h3>${{result.machinePrice}}</h3>
 										<p>
-											{{result.machineDescription}} 
+											{{machine.machineDescription|truncatewords:4}}  
 										</p>
 									</div>
 								</div>
@@ -363,8 +358,7 @@
 											{% if user.is_authenticated %}
 											<div class="featured-model-info">
 												<p>
-													<strong> Category:</strong> {{machine.machineCategory}}
-													<strong> Brand:</strong> {{machine.machineBrand}}<br>
+													<h2><a href="#">{{machine.machineName}}</a></h2>
 													<!-- Sale badge-->
 													<a class="badge text-white" style="background-color: rgb(14, 221, 14); padding-left: 6px; padding-right: 6px;" href="update_task/{{machine.id}}/{{machine.machineName}}">Update</a> 
 													<a class="badge bg-red text-white" style="background-color: rgb(221, 14, 14); padding-left: 6px; padding-right: 6px;" href="delete_task/{{machine.id}}/{{machine.machineName}}">Delete</a> 
@@ -373,17 +367,15 @@
 											{% else %}
 											<div class="featured-model-info">
 												<p>
-													<strong> Category:</strong> {{machine.machineCategory}}&nbsp;&nbsp;
-													 <strong> Brand:</strong> {{machine.machineBrand}}
+													<h2><a href="#">{{machine.machineName}}</a></h2>
 												</p>
 											</div>
 											{% endif %}
 										</div>
 										<div class="featured-cars-txt">
-											<h2><a href="#">{{machine.machineName}}</a></h2>
 											<strike><h3>${{machine.machinePrice}}</h3></strike>
 											<p>
-												{{machine.machineDescription}} 
+												{{machine.machineDescription|truncatewords:4}} 
 											</p>
 										</div>
 									</div>
@@ -400,8 +392,7 @@
 											{% if user.is_authenticated %}
 											<div class="featured-model-info">
 												<p>
-													<strong> Category:</strong> {{machine.machineCategory}}
-													<strong> Brand:</strong> {{machine.machineBrand}}<br>
+													<h2><a href="#">{{machine.machineName}}</a></h2>
 													<!-- Sale badge-->
 													<a class="badge text-white" style="background-color: rgb(14, 221, 14);" href="update_task/{{machine.id}}/{{machine.machineName}}">Update</a> 
 													<a class="badge bg-red text-white" style="background-color: rgb(221, 14, 14);" href="delete_task/{{machine.id}}/{{machine.machineName}}">Delete</a> 
@@ -410,17 +401,16 @@
 											{% else %}
 											<div class="featured-model-info">
 												<p>
-													<strong> Category:</strong> {{machine.machineCategory}}&nbsp;&nbsp;
-													 <strong> Brand:</strong> {{machine.machineBrand}}
+													<h2><a href="#">{{machine.machineName}}</a></h2>
 												</p>
 											</div>
 											{% endif %}
 										</div>
 										<div class="featured-cars-txt">
-											<h2><a href="#">{{machine.machineName}}</a></h2>
+											
 											<h3>${{machine.machinePrice}}</h3>
 											<p>
-												{{machine.machineDescription}} 
+												{{machine.machineDescription|truncatewords:4}}  
 											</p>
 										</div>
 									</div>

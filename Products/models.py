@@ -17,7 +17,7 @@ class MachineBrand(models.Model):
     
 class Machine(models.Model):
     machineName = models.CharField(max_length=50)
-    machinePrice = models.DecimalField(default= 0, decimal_places= 2, max_digits= 6, null= False, blank= False)
+    machinePrice = models.DecimalField(default= 0, decimal_places= 2, max_digits= 9, null= False, blank= False)
     machineDescription = models.CharField(max_length=50000)
     machineNegotiatable= models.BooleanField(default= False)
     machineImage= models.ImageField(null= False, blank= False, upload_to= 'images/')
