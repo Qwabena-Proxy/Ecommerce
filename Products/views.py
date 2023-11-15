@@ -235,3 +235,10 @@ def brandAdd(request):
 
 def categoryAdd(request):
     return render(request, 'category.html')
+
+def productDetails(request, productid, productname):
+    product= Machine.objects.get(id= productid, machineName= productname)
+    context= {
+        'product': product,
+    }
+    return render(request, 'details.html', context= context)

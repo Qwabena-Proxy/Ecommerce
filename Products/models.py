@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-import requests
+# import request
 
 # Create your models here.
 class MachineCategory(models.Model):

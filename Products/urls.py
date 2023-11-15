@@ -6,6 +6,7 @@ urlpatterns= [
     path('login', views.loginPage, name='login'),
     path('logout', views.logoutPage, name='logout'),
     path('upload_new_product', views.newProducts, name='upload_new_product'),
+    path('product_details/<int:productid>/<str:productname>',views.productDetails, name='details'),
     path('update_task/<int:productid>/<str:productname>',views.updateProduct, name='update'),
     path('delete_task/<int:productid>/<str:productname>',views.deleteProduct, name='delete'),
     path('add_category', views.categoryAdd, name='addcategory'),
