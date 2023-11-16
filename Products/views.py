@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from datetime import datetime, timedelta
 from time import sleep
 from .models import *
 from pathlib import Path
@@ -242,3 +243,17 @@ def productDetails(request, productid, productname):
         'product': product,
     }
     return render(request, 'details.html', context= context)
+
+def tails(request):
+    machine= Machine.objects.all()
+    context= {
+        'machine': machine,
+    }
+    return render(request, 'tails.html', context=context)
+
+def products(request):
+    machine= Machine.objects.all()
+    context= {
+        'machine': machine,
+    }
+    return render(request, 'allproducts.html', context=context)

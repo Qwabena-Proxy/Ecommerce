@@ -76,7 +76,7 @@
 					<p>
 						BrainsTech offers you with quality products, with a best customer service. We cherish our customers and your feedback means alot to us. 
 					</p>
-					<button class="welcome-btn" onclick="window.location.href='#contact'">contact us</button>
+					<button class="welcome-btn" onclick="window.location.href='products'">View all products</button>
 				</div>
 			</div>
 
@@ -329,103 +329,6 @@
 
 		</section><!--/.new-cars-->
 		<!--new-cars end -->
-
-		<!--featured-cars start -->
-		<section id="featured-cars" class="featured-cars">
-			<div class="container">
-				<div class="section-header">
-					<p>checkout <span>our</span> featured products</p>
-					<h2>featured products</h2>
-				</div><!--/.section-header-->
-				<div class="featured-cars-content">
-
-
-
-					<div class="container px-4 px-lg-5 mt-5">
-						<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-				
-							{% for machine in machines %}
-								{% if machine.is_sale %}
-
-								<div class="col-lg-3 col-md-4 col-sm-6">
-									<div class="single-featured-cars">
-										<div class="featured-img-box">
-											<!-- Sale badge-->
-										<a class="badge text-white position-absolute" style="background-color: #4e4efa65; padding-left: 6px; padding-right: 6px;" href="#">Sold</a>
-											<div class="featured-cars-img">
-												<img src="{{machine.machineImage.url}}" alt="cars">
-											</div>
-											{% if user.is_authenticated %}
-											<div class="featured-model-info">
-												<p>
-													<h2><a href="#">{{machine.machineName}}</a></h2>
-													<!-- Sale badge-->
-													<a class="badge text-white" style="background-color: rgb(14, 221, 14); padding-left: 6px; padding-right: 6px;" href="update_task/{{machine.id}}/{{machine.machineName}}">Update</a> 
-													<a class="badge bg-red text-white" style="background-color: rgb(221, 14, 14); padding-left: 6px; padding-right: 6px;" href="delete_task/{{machine.id}}/{{machine.machineName}}">Delete</a> 
-												</p>
-											</div>
-											{% else %}
-											<div class="featured-model-info">
-												<p>
-													<h2><a href="#">{{machine.machineName}}</a></h2>
-												</p>
-											</div>
-											{% endif %}
-										</div>
-										<div class="featured-cars-txt">
-											<strike><h3>${{machine.machinePrice}}</h3></strike>
-											<p>
-												{{machine.machineDescription|truncatewords:4}} 
-											</p>
-										</div>
-									</div>
-								</div>
-								{% else %}
-								<div class="col-lg-3 col-md-4 col-sm-6">
-									<div class="single-featured-cars">
-										<div class="featured-img-box">
-											<!-- Sale badge-->
-										<a class="badge text-white position-absolute" style="background-color: #4e4ffa; padding-left: 6px; padding-right: 6px;" href="product_details/{{machine.id}}/{{machine.machineName}}">Checkout</a>
-											<div class="featured-cars-img">
-												<img src="{{machine.machineImage.url}}" alt="cars">
-											</div>
-											{% if user.is_authenticated %}
-											<div class="featured-model-info">
-												<p>
-													<h2><a href="#">{{machine.machineName}}</a></h2>
-													<!-- Sale badge-->
-													<a class="badge text-white" style="background-color: rgb(14, 221, 14);" href="update_task/{{machine.id}}/{{machine.machineName}}">Update</a> 
-													<a class="badge bg-red text-white" style="background-color: rgb(221, 14, 14);" href="delete_task/{{machine.id}}/{{machine.machineName}}">Delete</a> 
-												</p>
-											</div>
-											{% else %}
-											<div class="featured-model-info">
-												<p>
-													<h2><a href="#">{{machine.machineName}}</a></h2>
-												</p>
-											</div>
-											{% endif %}
-										</div>
-										<div class="featured-cars-txt">
-											
-											<h3>${{machine.machinePrice}}</h3>
-											<p>
-												{{machine.machineDescription|truncatewords:4}}  
-											</p>
-										</div>
-									</div>
-								</div>
-								{% endif %}
-							{% endfor %}
-				
-						</div>
-					</div>
-				</div>
-			</div><!--/.container-->
-
-		</section><!--/.featured-cars-->
-		<!--featured-cars end -->
-
 		<!-- clients-say strat -->
 		<section id="clients-say"  class="clients-say">
 			<div class="container">
@@ -537,3 +440,4 @@
     </body>
 	
 </html>
+

@@ -1,0 +1,314 @@
+{% load static %}
+<html>
+<head>
+<!--tailwind.css-->
+<link rel="stylesheet" href="{% static 'assets/css/login.css' %}" type="text/css" media="all" />
+</head>
+<body>
+
+  <div tabindex="0" class="focus:outline-none">
+    <!-- Remove py-8 -->
+    <div class="mx-auto container py-8">
+        <div class="flex flex-wrap items-center ">
+          {% for machine in machine%}
+            <!-- Card 1 -->
+            <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8">
+                <div>
+                    <img alt="person capturing an image" src="{{machine.machineImage.url}}" tabindex="0" class="focus:outline-none w-full h-44" />
+                </div>
+                <div class="bg-white">
+                    <div class="flex items-center justify-between px-4 pt-4">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" tabindex="0" class="focus:outline-none" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M9 4h6a2 2 0 0 1 2 2v14l-5-3l-5 3v-14a2 2 0 0 1 2 -2"></path>
+                            </svg>
+                        </div>
+                        <div class="bg-yellow-200 py-1.5 px-6 rounded-full">
+                            <p tabindex="0" class="focus:outline-none text-xs text-yellow-700">Featured</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center">
+                            <h2 tabindex="0" class="focus:outline-none text-lg font-semibold">iphone XS</h2>
+                            <p tabindex="0" class="focus:outline-none text-xs text-gray-600 pl-5">4 days ago</p>
+                        </div>
+                        <p tabindex="0" class="focus:outline-none text-xs text-gray-600 mt-2">The Apple iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos</p>
+                        <div class="flex mt-4">
+                            <div>
+                                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 px-2 bg-gray-200 py-1">12 months warranty</p>
+                            </div>
+                            <div class="pl-2">
+                                <p tabindex="0" class="focus:outline-none text-xs text-gray-600 px-2 bg-gray-200 py-1">Complete box</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between py-4">
+                            <h2 tabindex="0" class="focus:outline-none text-indigo-700 text-xs font-semibold">Bay Area, San Francisco</h2>
+                            <h3 tabindex="0" class="focus:outline-none text-indigo-700 text-xl font-semibold"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 1 Ends -->
+            {% endfor %}
+        </div>
+    </div>
+    <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
+</div>
+ <script src="chrome-extension://kgejglhpjiefppelpmljglcjbhoiplfn/shadydom.js"></script>
+<script>
+    if (!window.ShadyDOM) window.ShadyDOM = { force: true, noPatch: true };
+</script>
+
+
+<!-- btn -->
+<!-- <div
+        class="rounded-l-lg p-4 bg-gray-200 flex flex-col justify-center items-center border-0 border-r border-gray-300 ">
+        <label class="cursor-pointer hover:opacity-80 inline-flex items-center shadow-md my-2 px-2 py-2 bg-gray-900 text-gray-50 border border-transparent
+        rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none 
+       focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150" for="restaurantImage">
+           
+    Select image
+            <input id="restaurantImage" class="text-sm cursor-pointer w-36 hidden" type="file">
+        </label> -->
+
+<!-- checklist -->
+<!-- component -->
+<!-- <div class="inline-flex items-center">
+    <label
+      class="relative flex cursor-pointer items-center rounded-full p-3"
+      for="ripple-on"
+      data-ripple-dark="true"
+    >
+      <input
+        id="ripple-on"
+        type="checkbox"
+        class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-pink-500 checked:before:bg-pink-500 hover:before:opacity-10"
+      />
+      <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-3.5 w-3.5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          stroke="currentColor"
+          stroke-width="1"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </div>
+    </label>
+    <label
+      class="mt-px cursor-pointer select-none font-light text-gray-700"
+      for="ripple-on"
+    >
+      Ripple Effect On
+    </label>
+  </div>
+  <div class="inline-flex items-center">
+    <label
+      class="relative flex cursor-pointer items-center rounded-full p-3"
+      for="ripple-off"
+    >
+      <input
+        id="ripple-off"
+        type="checkbox"
+        class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-pink-500 checked:before:bg-pink-500 hover:before:opacity-10"
+      />
+      <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-3.5 w-3.5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          stroke="currentColor"
+          stroke-width="1"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </div>
+    </label>
+    <label
+      class="mt-px cursor-pointer select-none font-light text-gray-700"
+      for="ripple-off"
+    >
+      Ripple Effect Off
+    </label>
+  </div>
+  <div class="w-full pt-5 px-4 mb-8 mx-auto ">
+      <div class="text-sm text-gray-700 py-1">
+          Made with <a class="text-gray-700 font-semibold" href="https://www.material-tailwind.com/docs/html/checkbox?ref=tailwindcomponents" target="_blank">Material Tailwind</a> by <a href="https://www.creative-tim.com?ref=tailwindcomponents" class="text-gray-700 font-semibold" target="_blank"> Creative Tim</a>.
+      </div>
+  </div> -->
+  
+  <!-- stylesheet -->
+  <!-- <link
+    rel="stylesheet"
+    href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
+  />
+  
+  <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script> -->
+
+  <!-- dropdown -->
+
+  <!-- component -->
+<!-- <div class="min-h-screen flex items-center justify-center">
+    <div class="relative group">
+      <button id="dropdown-button" class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+        <span class="mr-2">Open Dropdown</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
+      <div id="dropdown-menu" class="hidden absolute right-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1"> -->
+        <!-- Search input -->
+        <!-- <input id="search-input" class="block w-full px-4 py-2 text-gray-800 border rounded-md  border-gray-300 focus:outline-none" type="text" placeholder="Search items" autocomplete="off"> -->
+        <!-- Dropdown content goes here -->
+        <!-- <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Uppercase</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Lowercase</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Camel Case</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">Kebab Case</a>
+      </div>
+    </div>
+  </div> -->
+  <!-- <script>
+  // JavaScript to toggle the dropdown
+      const dropdownButton = document.getElementById('dropdown-button');
+      const dropdownMenu = document.getElementById('dropdown-menu');
+      const searchInput = document.getElementById('search-input');
+      let isOpen = false; // Set to true to open the dropdown by default
+      
+      // Function to toggle the dropdown state
+      function toggleDropdown() {
+        isOpen = !isOpen;
+        dropdownMenu.classList.toggle('hidden', !isOpen);
+      }
+      
+      // Set initial state
+      toggleDropdown();
+      
+      dropdownButton.addEventListener('click', () => {
+        toggleDropdown();
+      });
+      
+      // Add event listener to filter items based on input
+      searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const items = dropdownMenu.querySelectorAll('a');
+      
+        items.forEach((item) => {
+          const text = item.textContent.toLowerCase();
+          if (text.includes(searchTerm)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+  </script> -->
+
+</body>
+</html>
+
+<!--featured-cars start -->
+<section id="featured-cars" class="featured-cars">
+  <div class="container">
+    <div class="section-header">
+      <p>checkout <span>our</span> featured products</p>
+      <h2>featured products</h2>
+    </div><!--/.section-header-->
+    <div class="featured-cars-content">
+
+
+
+      <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    
+          {% for machine in machines %}
+            {% if machine.is_sale %}
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="single-featured-cars">
+                <div class="featured-img-box">
+                  <!-- Sale badge-->
+                <a class="badge text-white position-absolute" style="background-color: #4e4efa65; padding-left: 6px; padding-right: 6px;" href="#">Sold</a>
+                  <div class="featured-cars-img">
+                    <img src="{{machine.machineImage.url}}" alt="cars">
+                  </div>
+                  {% if user.is_authenticated %}
+                  <div class="featured-model-info">
+                    <p>
+                      <h2><a href="#">{{machine.machineName}}</a></h2>
+                      <!-- Sale badge-->
+                      <a class="badge text-white" style="background-color: rgb(14, 221, 14); padding-left: 6px; padding-right: 6px;" href="update_task/{{machine.id}}/{{machine.machineName}}">Update</a> 
+                      <a class="badge bg-red text-white" style="background-color: rgb(221, 14, 14); padding-left: 6px; padding-right: 6px;" href="delete_task/{{machine.id}}/{{machine.machineName}}">Delete</a> 
+                    </p>
+                  </div>
+                  {% else %}
+                  <div class="featured-model-info">
+                    <p>
+                      <h2><a href="#">{{machine.machineName}}</a></h2>
+                    </p>
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="featured-cars-txt">
+                  <strike><h3>${{machine.machinePrice}}</h3></strike>
+                  <p>
+                    {{machine.machineDescription|truncatewords:4}} 
+                  </p>
+                </div>
+              </div>
+            </div>
+            {% else %}
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="single-featured-cars">
+                <div class="featured-img-box">
+                  <!-- Sale badge-->
+                <a class="badge text-white position-absolute" style="background-color: #4e4ffa; padding-left: 6px; padding-right: 6px;" href="product_details/{{machine.id}}/{{machine.machineName}}">Checkout</a>
+                  <div class="featured-cars-img">
+                    <img src="{{machine.machineImage.url}}" alt="cars">
+                  </div>
+                  {% if user.is_authenticated %}
+                  <div class="featured-model-info">
+                    <p>
+                      <h2><a href="#">{{machine.machineName}}</a></h2>
+                      <!-- Sale badge-->
+                      <a class="badge text-white" style="background-color: rgb(14, 221, 14);" href="update_task/{{machine.id}}/{{machine.machineName}}">Update</a> 
+                      <a class="badge bg-red text-white" style="background-color: rgb(221, 14, 14);" href="delete_task/{{machine.id}}/{{machine.machineName}}">Delete</a> 
+                    </p>
+                  </div>
+                  {% else %}
+                  <div class="featured-model-info">
+                    <p>
+                      <h2><a href="#">{{machine.machineName}}</a></h2>
+                    </p>
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="featured-cars-txt">
+                  
+                  <h3>${{machine.machinePrice}}</h3>
+                  <p>
+                    {{machine.machineDescription|truncatewords:4}}  
+                  </p>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
+    
+        </div>
+      </div>
+    </div>
+  </div><!--/.container-->
+</section><!--/.featured-cars-->
+<!--featured-cars end -->
