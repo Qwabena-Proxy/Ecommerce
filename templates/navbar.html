@@ -23,15 +23,11 @@
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class=" scroll active"><a href="#home">home</a></li>
                         <li class="scroll"><a href="#service">service</a></li>
-                        <li class="scroll"><a href="#featured-cars">featured products</a></li>
+                        <li class=""><a href="{% url 'products' %}">all products</a></li>
                         <li class="scroll"><a href="#new-cars">new products</a></li>
                         <li class="scroll"><a href="#brand">brands</a></li>
                         {% if user.is_authenticated %}
                         <li><a href="upload_new_product">upload new products</a></li>
-                        {% else %}
-                        <li class="scroll"><a href="#contact">contact us</a></li>
-                        {% endif %}
-                        {% if user.is_authenticated %}
                         <li><a href="logout">logout</a></li>
                         {% else %}
                         <li><a href="login">login</a></li>

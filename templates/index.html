@@ -149,95 +149,6 @@
 		<!--service start -->
 		
 		<section  class="service">
-			{% if results %}
-			<div class="section-header">
-				<h2>Search Results</h2>
-			</div>
-				<!-- Search result -->
-			<div class="container">
-				<div class="featured-cars-content">
-					<div class="container px-4 px-lg-5 mt-5">
-						<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-							{% for result in results %}
-							{% if machine.is_sale %}
-
-								<div class="col-lg-3 col-md-4 col-sm-6">
-									<div class="single-featured-cars">
-										<div class="featured-img-box">
-											<!-- Sale badge-->
-										<a class="badge text-white position-absolute" style="background-color: #4e4efa65; padding-left: 6px; padding-right: 6px;" href="#">Sold</a>
-											<div class="featured-cars-img">
-												<img src="{{machine.machineImage.url}}" alt="cars">
-											</div>
-											{% if user.is_authenticated %}
-											<div class="featured-model-info">
-												<p>
-													<strong> Category:</strong> {{machine.machineCategory}}
-													<strong> Brand:</strong> {{machine.machineBrand}}<br>
-													<!-- Sale badge-->
-													<a class="badge text-white" style="background-color: rgb(14, 221, 14); padding-left: 6px; padding-right: 6px;" href="update_task/{{machine.id}}/{{machine.machineName}}">Update</a> 
-													<a class="badge bg-red text-white" style="background-color: rgb(221, 14, 14); padding-left: 6px; padding-right: 6px;" href="delete_task/{{result.id}}/{{result.machineName}}">Delete</a> 
-												</p>
-											</div>
-											{% else %}
-											<div class="featured-model-info">
-												<p>
-													<h2><a href="#">{{machine.machineName}}</a></h2>
-												</p>
-											</div>
-											{% endif %}
-										</div>
-										<div class="featured-cars-txt">
-											<strike><h3>${{machine.machinePrice}}</h3></strike>
-											<p>
-												{{machine.machineDescription|truncatewords:4}}  
-											</p>
-										</div>
-									</div>
-								</div>
-							{% else %}
-							<div class="col-lg-3 col-md-4 col-sm-6">
-								<div class="single-featured-cars">
-									<div class="featured-img-box">
-										<!-- Sale badge-->
-									<a class="badge text-white position-absolute" style="background-color: #4e4ffa; padding-left: 6px; padding-right: 6px;" href="product_details/{{result.id}}/{{result.machineName}}">Checkout</a>
-										<div class="featured-cars-img">
-											<img src="{{result.machineImage.url}}" alt="cars">
-										</div>
-										{% if user.is_authenticated %}
-										<div class="featured-model-info">
-											<p>
-												<h2><a href="#">{{result.machineName}}</a></h2>
-												<!-- Sale badge-->
-												<a class="badge text-white" style="background-color: rgb(14, 221, 14);" href="update_task/{{result.id}}/{{result.machineName}}">Update</a> 
-												<a class="badge bg-red text-white" style="background-color: rgb(221, 14, 14);" href="delete_task/{{result.id}}/{{result.machineName}}">Delete</a> 
-											</p>
-										</div>
-										{% else %}
-										<div class="featured-model-info">
-											<p>
-												<h2><a href="#">{{result.machineName}}</a></h2>
-											</p>
-										</div>
-										{% endif %}
-									</div>
-									<div class="featured-cars-txt">
-										<h3>${{result.machinePrice}}</h3>
-										<p>
-											{{machine.machineDescription|truncatewords:4}}  
-										</p>
-									</div>
-								</div>
-							</div>
-							{% endif %}
-							{% endfor %}
-						</div>
-					</div>
-				</div>
-			</div>
-			{% endif %}
-			<br><br><br><br>
-
 			<div class="container" id="service">
 				<div class="section-header" style="margin-bottom: 12px;">
 					<h2>Service</h2>
@@ -247,7 +158,21 @@
 						<div class="col-md-4 col-sm-6">
 							<div class="single-service-item">
 								<div class="single-service-icon">
-									<i class="flaticon-car"></i>
+									
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="80" height="80" viewBox="0 0 256 256" xml:space="preserve">
+
+	<defs>
+	</defs>
+	<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+		<path d="M 39.936 84.798 c -0.116 0 -0.232 -0.021 -0.344 -0.061 L 0.656 70.478 C 0.262 70.333 0 69.958 0 69.538 V 20.184 c 0 -0.327 0.16 -0.633 0.427 -0.82 c 0.269 -0.186 0.611 -0.231 0.917 -0.119 L 40.28 33.504 c 0.394 0.144 0.656 0.52 0.656 0.939 v 49.354 c 0 0.326 -0.16 0.633 -0.427 0.819 C 40.338 84.736 40.138 84.798 39.936 84.798 z M 2 68.84 l 36.936 13.526 V 35.142 L 2 21.615 V 68.84 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+		<path d="M 39.936 84.798 c -0.202 0 -0.402 -0.062 -0.573 -0.181 c -0.268 -0.187 -0.427 -0.493 -0.427 -0.819 V 34.443 c 0 -0.552 0.448 -1 1 -1 s 1 0.448 1 1 v 47.923 l 8.917 -3.266 c 0.519 -0.187 1.094 0.077 1.283 0.596 s -0.077 1.093 -0.596 1.283 l -10.26 3.758 C 40.168 84.777 40.052 84.798 39.936 84.798 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+		<path d="M 78.872 43.215 c -0.553 0 -1 -0.448 -1 -1 v -20.6 L 40.28 35.382 c -0.517 0.189 -1.093 -0.077 -1.283 -0.595 s 0.077 -1.093 0.595 -1.283 l 38.936 -14.259 c 0.305 -0.112 0.647 -0.068 0.917 0.119 c 0.268 0.187 0.427 0.493 0.427 0.82 v 22.031 C 79.872 42.768 79.425 43.215 78.872 43.215 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+		<path d="M 39.936 35.443 c -0.116 0 -0.233 -0.021 -0.344 -0.061 L 0.656 21.123 C 0.262 20.979 0 20.604 0 20.184 s 0.262 -0.795 0.656 -0.939 L 39.592 4.986 c 0.222 -0.081 0.466 -0.081 0.688 0 l 38.936 14.259 c 0.395 0.144 0.656 0.52 0.656 0.939 s -0.262 0.795 -0.656 0.939 L 40.28 35.382 C 40.169 35.423 40.052 35.443 39.936 35.443 z M 3.908 20.184 l 36.028 13.194 l 36.028 -13.194 L 39.936 6.99 L 3.908 20.184 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+		<path d="M 19.484 41.346 c -0.552 0 -1 -0.448 -1 -1 V 26.954 c 0 -0.421 0.264 -0.798 0.661 -0.941 l 39.247 -14.145 c 0.518 -0.186 1.093 0.082 1.279 0.602 c 0.188 0.52 -0.082 1.092 -0.602 1.28 L 20.484 27.656 v 12.69 C 20.484 40.898 20.037 41.346 19.484 41.346 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+		<path d="M 67.11 72.757 c -0.256 0 -0.512 -0.098 -0.707 -0.293 l -6.381 -6.381 c -0.391 -0.391 -0.391 -1.023 0 -1.414 s 1.023 -0.391 1.414 0 l 5.674 5.674 l 12.056 -12.055 c 0.391 -0.391 1.023 -0.391 1.414 0 s 0.391 1.023 0 1.414 L 67.817 72.464 C 67.622 72.659 67.366 72.757 67.11 72.757 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+		<path d="M 70.301 85.075 c -10.861 0 -19.698 -8.837 -19.698 -19.699 s 8.837 -19.699 19.698 -19.699 C 81.163 45.677 90 54.514 90 65.376 S 81.163 85.075 70.301 85.075 z M 70.301 47.677 c -9.759 0 -17.698 7.939 -17.698 17.699 s 7.939 17.699 17.698 17.699 c 9.76 0 17.699 -7.939 17.699 -17.699 S 80.061 47.677 70.301 47.677 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+	</g>
+	</svg>
 								</div>
 								<h2><a href="#">largest dealership <span> of</span> laptops, mobile phones and accessories</a></h2>
 								<p>
@@ -258,7 +183,15 @@
 						<div class="col-md-4 col-sm-6">
 							<div class="single-service-item">
 								<div class="single-service-icon">
-									<i class="flaticon-car-repair"></i>
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="80" height="80" viewBox="0 0 256 256" xml:space="preserve">
+
+										<defs>
+										</defs>
+										<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+											<path d="M 10.681 88.074 c -1.509 0 -2.928 -0.588 -3.995 -1.655 l -3.104 -3.104 c -1.067 -1.067 -1.655 -2.486 -1.655 -3.995 c 0 -1.51 0.587 -2.929 1.655 -3.995 l 26.257 -26.257 c -2.014 -7.51 1.917 -15.581 9.151 -18.577 c 4.563 -1.89 9.834 -1.488 14.101 1.076 c 0.265 0.158 0.44 0.43 0.478 0.735 c 0.038 0.306 -0.067 0.611 -0.285 0.829 L 40.531 45.883 c -0.988 0.989 -0.988 2.597 0 3.585 c 0.958 0.957 2.627 0.957 3.585 0 l 12.755 -12.756 c 0.218 -0.217 0.526 -0.322 0.828 -0.286 c 0.306 0.037 0.576 0.213 0.735 0.477 c 0.447 0.741 0.798 1.424 1.073 2.086 c 3.313 8.001 -0.499 17.205 -8.499 20.519 c -3.188 1.321 -6.742 1.548 -10.074 0.651 l -26.26 26.259 C 13.609 87.486 12.19 88.074 10.681 88.074 z M 44.979 31.292 c -1.763 0 -3.532 0.347 -5.223 1.047 c -6.478 2.683 -9.92 10.028 -7.837 16.722 c 0.11 0.354 0.015 0.741 -0.248 1.004 L 4.996 76.739 c -0.689 0.689 -1.069 1.605 -1.069 2.581 c 0 0.975 0.379 1.892 1.069 2.581 L 8.1 85.005 c 1.379 1.379 3.783 1.379 5.162 0 l 26.677 -26.677 c 0.262 -0.263 0.648 -0.358 1.004 -0.248 c 3.054 0.951 6.356 0.801 9.301 -0.419 c 6.981 -2.892 10.309 -10.924 7.417 -17.905 c -0.095 -0.228 -0.198 -0.456 -0.314 -0.69 L 45.531 50.883 c -0.856 0.856 -1.995 1.328 -3.207 1.328 s -2.351 -0.472 -3.207 -1.328 c -1.768 -1.769 -1.768 -4.646 0 -6.414 l 11.805 -11.804 C 49.035 31.753 47.011 31.292 44.979 31.292 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+											<path d="M 49.972 90 H 40.03 c -3.773 -0.002 -6.841 -3.071 -6.841 -6.842 c 0 -1.816 -0.997 -2.829 -1.832 -3.358 c -0.261 -0.165 -0.431 -0.442 -0.46 -0.749 c -0.029 -0.308 0.085 -0.611 0.31 -0.823 l 10.219 -9.63 c 0.216 -0.203 0.507 -0.305 0.806 -0.266 c 3.977 0.479 8.045 -0.082 11.762 -1.621 c 5.789 -2.397 10.303 -6.916 12.707 -12.722 c 2.405 -5.807 2.409 -12.192 0.011 -17.981 c -4.958 -11.971 -18.73 -17.676 -30.704 -12.719 c -9.678 4.009 -15.577 14.076 -14.345 24.482 c 0.036 0.304 -0.069 0.607 -0.286 0.824 l -9.865 9.87 c -0.205 0.205 -0.481 0.317 -0.779 0.29 c -0.29 -0.021 -0.556 -0.166 -0.729 -0.397 c -0.768 -1.026 -1.832 -1.547 -3.162 -1.548 c -0.001 0 -0.003 0 -0.004 0 c -1.825 0 -3.541 -0.711 -4.833 -2.003 C 0.712 53.515 0 51.797 0 49.969 V 40.03 c 0 -1.827 0.711 -3.544 2.003 -4.837 c 1.293 -1.292 3.011 -2.004 4.838 -2.004 c 0 0 0.001 0 0.001 0 c 2.411 0 3.382 -1.724 3.688 -2.465 c 0.308 -0.743 0.839 -2.651 -0.865 -4.355 c -1.292 -1.292 -2.004 -3.01 -2.003 -4.838 c 0 -1.828 0.712 -3.546 2.004 -4.838 l 7.027 -7.027 c 1.293 -1.292 3.01 -2.003 4.833 -2.003 c 0.002 0 0.003 0 0.004 0 c 1.827 0 3.545 0.712 4.837 2.004 c 1.703 1.704 3.613 1.172 4.354 0.865 c 0.742 -0.307 2.466 -1.28 2.466 -3.69 C 33.192 3.07 36.26 0.001 40.029 0 l 9.941 0 c 0.001 0 0.002 0 0.002 0 c 1.826 0 3.543 0.711 4.835 2.004 c 1.291 1.291 2.003 3.008 2.004 4.835 c 0 2.414 1.725 3.386 2.466 3.692 c 0.579 0.241 2.599 0.889 4.354 -0.865 C 66.296 7.001 70.636 7 73.304 9.665 l 7.029 7.03 c 1.292 1.292 2.004 3.01 2.004 4.837 c 0 1.828 -0.712 3.546 -2.004 4.838 c -1.754 1.754 -1.106 3.775 -0.866 4.353 c 0.309 0.743 1.283 2.468 3.691 2.468 c 3.772 0.001 6.841 3.069 6.842 6.839 l -0.001 9.94 c -0.002 3.769 -3.07 6.837 -6.839 6.842 h -0.001 c -2.411 0 -3.385 1.725 -3.691 2.466 c -0.241 0.58 -0.889 2.601 0.865 4.354 c 2.665 2.666 2.666 7.005 0.003 9.673 l -7.031 7.03 c -2.668 2.662 -7.006 2.662 -9.672 0.002 c -1.704 -1.707 -3.613 -1.175 -4.355 -0.868 c -0.742 0.308 -2.467 1.282 -2.467 3.691 c 0 1.827 -0.712 3.545 -2.004 4.837 c -0.643 0.643 -1.39 1.143 -2.219 1.485 C 51.761 89.824 50.881 89.999 49.972 90 z M 33.42 78.89 c 0.882 0.85 1.769 2.215 1.769 4.269 c 0 2.668 2.171 4.84 4.841 4.842 h 9.94 c 0.645 -0.001 1.268 -0.124 1.853 -0.366 c 0.586 -0.242 1.113 -0.596 1.569 -1.052 c 0.914 -0.914 1.418 -2.13 1.418 -3.423 c 0 -3.717 2.833 -5.18 3.701 -5.539 c 0.869 -0.36 3.906 -1.329 6.535 1.301 c 1.885 1.883 4.956 1.885 6.845 -0.002 l 7.029 -7.029 c 1.885 -1.887 1.884 -4.958 -0.002 -6.845 c -2.633 -2.633 -1.659 -5.667 -1.298 -6.534 c 0.358 -0.867 1.819 -3.7 5.536 -3.7 c 0.001 0 0.001 0 0.002 0 c 2.667 -0.003 4.838 -2.176 4.84 -4.843 L 88 40.029 c -0.001 -2.668 -2.172 -4.839 -4.839 -4.84 c -3.718 0 -5.181 -2.833 -5.541 -3.701 c -0.36 -0.866 -1.333 -3.902 1.299 -6.534 c 0.914 -0.914 1.418 -2.13 1.418 -3.424 c 0 -1.293 -0.504 -2.508 -1.418 -3.423 l -7.029 -7.029 c -1.888 -1.886 -4.96 -1.884 -6.846 0.002 c -2.632 2.632 -5.667 1.66 -6.533 1.299 c -0.866 -0.358 -3.7 -1.818 -3.7 -5.54 c -0.001 -1.293 -0.505 -2.508 -1.418 -3.422 C 52.479 2.504 51.263 2 49.972 2 c -0.001 0 -0.001 0 -0.002 0 l -9.94 0 c -2.667 0.001 -4.838 2.173 -4.84 4.842 c 0 3.718 -2.833 5.179 -3.701 5.538 c -0.868 0.36 -3.905 1.33 -6.533 -1.298 c -0.915 -0.915 -2.13 -1.418 -3.423 -1.418 c -0.001 0 -0.002 0 -0.003 0 c -1.291 0 -2.505 0.503 -3.42 1.418 l -7.027 7.027 c -0.915 0.914 -1.418 2.13 -1.418 3.424 c 0 1.293 0.503 2.509 1.417 3.423 c 2.629 2.629 1.659 5.666 1.299 6.533 c -0.358 0.867 -1.817 3.701 -5.536 3.701 c -0.001 0 -0.001 0 -0.002 0 c -1.292 0 -2.508 0.504 -3.423 1.418 C 2.503 37.522 2 38.737 2 40.03 v 9.939 c 0 1.294 0.503 2.51 1.417 3.424 s 2.128 1.417 3.419 1.417 c 0.001 0 0.002 0 0.003 0 c 1.84 0.001 3.127 0.701 3.997 1.499 l 8.785 -8.789 c -1.099 -11.117 5.268 -21.791 15.619 -26.079 c 12.99 -5.383 27.937 0.811 33.317 13.801 c 2.603 6.283 2.599 13.213 -0.011 19.512 c -2.609 6.3 -7.506 11.202 -13.789 13.805 c -3.888 1.61 -8.129 2.234 -12.298 1.812 L 33.42 78.89 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+										</g>
+										</svg>
 								</div>
 								<h2><a href="#">repairs of laptops and mobile phones</a></h2>
 								<p>
@@ -269,7 +202,15 @@
 						<div class="col-md-4 col-sm-6">
 							<div class="single-service-item">
 								<div class="single-service-icon">
-									<i class="flaticon-car-1"></i>
+									
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="80" height="80" viewBox="0 0 256 256" xml:space="preserve">
+
+								<defs>
+								</defs>
+								<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+									<path d="M 89.689 16.621 c -0.198 -0.188 -0.461 -0.284 -0.739 -0.274 c -6.479 0.321 -13.518 1.398 -22.148 3.389 c -0.271 0.063 -0.504 0.235 -0.643 0.476 c -0.139 0.241 -0.17 0.529 -0.088 0.794 l 0.838 2.704 c -6.363 -2.413 -15.313 -3.802 -23.06 -3.497 c -2.84 0 -6.082 1.409 -9.045 3.5 H 23.089 l 0.839 -2.708 c 0.083 -0.266 0.05 -0.553 -0.088 -0.794 c -0.138 -0.241 -0.371 -0.414 -0.642 -0.476 c -8.63 -1.991 -15.668 -3.068 -22.148 -3.389 c -0.269 -0.012 -0.54 0.085 -0.739 0.274 C 0.112 16.81 0 17.072 0 17.346 v 34.342 c 0 0.553 0.448 1 1 1 h 12.378 c 0.438 0 0.826 -0.285 0.955 -0.704 l 0.472 -1.523 c 10.187 11.872 20.546 22.775 28.634 22.775 c 1.557 0 3.029 -0.411 4.401 -1.29 l 0.211 0.214 c 0.944 0.956 2.209 1.487 3.561 1.495 c 0.011 0 0.021 0 0.032 0 c 1.339 0 2.597 -0.515 3.546 -1.451 c 0.834 -0.825 1.299 -1.873 1.436 -2.956 c 0.93 0.771 2.061 1.18 3.206 1.18 c 1.281 -0.001 2.564 -0.484 3.547 -1.454 c 1.109 -1.096 1.58 -2.581 1.456 -4.025 c 0.446 0.11 0.897 0.185 1.35 0.185 c 1.283 0 2.538 -0.443 3.448 -1.342 c 0.956 -0.944 1.487 -2.209 1.495 -3.561 s -0.507 -2.622 -1.387 -3.507 c -0.368 -0.453 -0.748 -0.888 -1.121 -1.334 l 6.816 -4.149 l 0.23 0.742 c 0.13 0.419 0.517 0.704 0.955 0.704 H 89 c 0.553 0 1 -0.447 1 -1 V 17.346 C 90 17.072 89.888 16.81 89.689 16.621 z M 12.641 50.688 H 2 V 18.403 c 5.806 0.359 12.122 1.335 19.699 3.043 L 12.641 50.688 z M 68.227 62.368 c -1.139 1.126 -3.31 1.005 -4.556 -0.258 c -0.017 -0.017 -0.039 -0.023 -0.057 -0.038 c -0.067 -0.077 -0.118 -0.163 -0.191 -0.237 l -10.95 -11.086 c -0.39 -0.392 -1.021 -0.396 -1.415 -0.009 c -0.393 0.389 -0.396 1.021 -0.009 1.415 l 10.95 11.086 c 0.569 0.575 0.88 1.343 0.875 2.16 c -0.005 0.816 -0.325 1.58 -0.901 2.148 c -1.195 1.183 -3.128 1.168 -4.31 -0.026 l -2.425 -2.455 c -0.002 -0.002 -0.003 -0.004 -0.004 -0.005 l -10.95 -11.085 c -0.389 -0.391 -1.022 -0.396 -1.414 -0.009 c -0.393 0.389 -0.397 1.021 -0.009 1.415 L 53.81 66.47 c 1.182 1.195 1.17 3.129 -0.026 4.31 c -1.196 1.182 -3.13 1.168 -4.31 -0.026 l -13.38 -13.545 c -0.389 -0.392 -1.022 -0.398 -1.414 -0.008 c -0.393 0.388 -0.397 1.021 -0.009 1.414 l 11.711 11.855 c -7.435 3.974 -19.75 -9.239 -30.877 -22.268 l 6.965 -22.487 h 9.815 c -2.741 2.432 -5.001 5.336 -6.092 7.983 c -1.396 3.386 -0.487 5.29 0.521 6.291 c 0.026 0.026 0.054 0.051 0.083 0.074 c 3.843 3.047 7.628 3.815 13.523 -2.283 c 2.001 0.122 3.705 -0.225 5.184 -1.064 c 8.306 5.807 15.937 12.961 22.749 21.343 C 69.435 59.254 69.423 61.188 68.227 62.368 z M 67.318 53.842 c -6.406 -7.41 -13.527 -13.843 -21.216 -19.146 c -0.341 -0.236 -0.793 -0.236 -1.134 -0.001 c -1.322 0.907 -2.939 1.251 -4.944 1.055 c -0.311 -0.034 -0.614 0.084 -0.827 0.31 c -5.585 5.943 -8.344 4.656 -11.109 2.473 c -0.996 -1.039 -0.577 -2.784 -0.046 -4.073 c 2.224 -5.398 10.113 -12.246 15.846 -12.247 c 8.172 -0.313 17.649 1.276 23.786 3.967 l 7.152 23.091 L 67.318 53.842 z M 88 50.688 H 77.358 l -9.058 -29.242 c 7.577 -1.708 13.894 -2.684 19.699 -3.043 V 50.688 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+								</g>
+								</svg>
 								</div>
 								<h2><a href="#">insurance support</a></h2>
 								<p>

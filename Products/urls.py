@@ -13,5 +13,5 @@ urlpatterns= [
     path('add_brand', views.brandAdd, name='addbrand'),
     path('add_brand_image', views.brandimageAdd, name='addbrandimage'),
     path('tails', views.tails, name=''),
-    path('products', views.products, name=''),
+    path('products', views.products, name='products'),
 ]

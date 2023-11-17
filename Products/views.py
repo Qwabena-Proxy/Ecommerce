@@ -34,7 +34,7 @@ def indexPage(request):
         'results': result,
         'images' : brandimages
     }
-        return render(request, 'index.html', context= context)
+        return render(request, 'search.html', context= context)
     else:
         context = {
         'machines': machine,
@@ -43,6 +43,42 @@ def indexPage(request):
         'images' : brandimages
     }
         return render(request, 'index.html', context= context)
+
+def search(request):
+    result= []
+    machine = Machine.objects.all()
+    category = MachineCategory.objects.all()
+    brands = MachineBrand.objects.all()
+    brandimages = BrandImages.objects.all()
+    if request.method == 'POST':
+        machines = Machine.objects.all()
+        categorys = MachineCategory.objects.all()
+        brands = MachineBrand.objects.all()
+
+        category= request.POST['category']
+        brand= request.POST['brand']
+        price= request.POST['price']
+        for machine in machines:
+            if category == str(machine.machineCategory) or brand == str(machine.machineBrand) or price == str(machine.machinePrice):
+                result.append(machine)
+            else:
+                pass
+        context = {
+        'machines': machines,
+        'brands': brands,
+        'categorys': categorys,
+        'results': result,
+        'images' : brandimages
+    }
+        return render(request, 'index.html', context= context)
+    else:
+        context = {
+        'machines': machine,
+        'brands': brands,
+        'categorys': category,
+        'images' : brandimages
+    }
+        return render(request, 'search.html', context= context)
 
 def loginPage(request):
     if request.method == 'POST':

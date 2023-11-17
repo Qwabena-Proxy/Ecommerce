@@ -1,4 +1,9 @@
 {% load static %}
+<!-- title of site -->
+<title>BrainsTech | Update Page</title>
+
+<!-- For favicon png -->
+<link rel="shortcut icon" type="image/icon" href="{% static 'assets/logo/favicon.png' %}"/>
 <link rel="stylesheet" href="{% static 'assets/css/login.css' %}" type="text/css" media="all" />
 <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css" media="all" />
 
@@ -28,7 +33,7 @@
                                     <img class="max-h-full max-w-full" id="preview-image" src="{{product.machineImage.url}}" alt="Image">
                                   </div>
                                   <br>
-                                <input type="file" style="color: white; margin-bottom: 5px;" name="machineImage" id="image-input" accept="image/*" onchange="updateImagePreview(event)""><br>
+                                <input type="file" style="color: white; margin-bottom: 5px;" name="machineImage" id="image-input" accept="image/*" onchange="updateImagePreview(event)"><br>
                                 <select class="textCustom" aria-label="Default select example" name="machineCategory">
                                     <option selected value="{{product.machineCategory}}">{{product.machineCategory}}</option><!-- /.option-->
                                     {% for category in categorys %}
