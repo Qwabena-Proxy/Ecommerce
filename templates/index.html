@@ -249,13 +249,13 @@
 										<div class="new-cars-txt">
 											<h2>{{product.machineName}}</h2>
 											<p>
-												{{product.machineDescription}} 
+												{{product.machineDescription|truncatewords:40}} 
 											</p>
 											<p class="new-cars-para2">
 												<strong>Category:</strong> {{product.machineCategory}} <br>
 												<strong>Brand:</strong> {{product.machineBrand}} 
 											</p>
-											<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
+											<button class="welcome-btn new-cars-btn" onclick="window.location.href='product_details/{{product.id}}/{{product.machineName}}'">
 												view details
 											</button>
 										</div><!--/.new-cars-txt-->	
