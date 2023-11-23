@@ -14,6 +14,8 @@ def indexPage(request):
     category = MachineCategory.objects.all()
     brands = MachineBrand.objects.all()
     brandimages = BrandImages.objects.all()
+    feedbacks= FeedBack.objects.all()
+    print(feedbacks)
     if request.method == 'POST':
         machines = Machine.objects.all()
         categorys = MachineCategory.objects.all()
@@ -40,7 +42,8 @@ def indexPage(request):
         'machines': machine,
         'brands': brands,
         'categorys': category,
-        'images' : brandimages
+        'images' : brandimages,
+        'feedbacks': feedbacks,
     }
         return render(request, 'index.html', context= context)
 

@@ -40,3 +40,20 @@ class BrandImages(models.Model):
 
     def __str__(self):
         return f'{self.brandName}'
+
+class Gender(models.Model):
+    gender= models.CharField(max_length=10)
+
+    def __str__(self):
+        return f'{self.gender}'
+
+class FeedBack(models.Model):
+    customerName= models.CharField(max_length= 20)
+    customerGender= models.ForeignKey(Gender, on_delete= models.CASCADE, default=1)
+    customerMessage= models.TextField()
+
+    def __str__(self):
+        return f'{self.customerName}'
+
+
+

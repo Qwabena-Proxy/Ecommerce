@@ -25,3 +25,4 @@ function updateImagePreview(event) {
       reader.readAsDataURL(imageInput.files[0]);
     }
   }
+
