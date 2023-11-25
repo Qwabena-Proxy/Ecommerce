@@ -15,7 +15,6 @@ def indexPage(request):
     brands = MachineBrand.objects.all()
     brandimages = BrandImages.objects.all()
     feedbacks= FeedBack.objects.all()
-    print(feedbacks)
     if request.method == 'POST':
         machines = Machine.objects.all()
         categorys = MachineCategory.objects.all()
@@ -222,7 +221,6 @@ def updateProduct(request, productid, productname):
                 else:
                     pass
 
-            print(new_product_Brands, new_product_Categorys)
             product = get_object_or_404(Machine, id= productid)
             product.machineName= new_product_name
             product.machinePrice=float(new_product_price)
@@ -296,3 +294,22 @@ def products(request):
         'machine': machine,
     }
     return render(request, 'allproducts.html', context=context)
+
+def reviews(request):
+    feedback= FeedBack.objects.all()
+    gender= Gender.objects.all()
+    if request.method == 'POST':
+        username= request.POST['name']
+        usergender= request.POST['gender']
+        usermessage= request.POST['message']
+
+        for gender in gender:
+            if usergender == str(gender):
+                usergenders= gender
+        customermsg= FeedBack(customerName=username, customerGender=usergenders, customerMessage=usermessage)
+        customermsg.save()
+        return redirect('index')
+    context= {
+        'gender': gender,
+    }
+    return render(request, 'reviews.html', context= context)

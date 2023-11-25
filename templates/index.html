@@ -72,11 +72,13 @@
 
 			<div class="container">
 				<div class="welcome-hero-txt">
-					<h2>get your desired laptops, mobile phones and accessories in resonable price</h2>
+					<h2>get your desired laptops, mobile phones and accessories at resonable price</h2>
 					<p>
 						BrainsTech offers you with quality products, with a best customer service. We cherish our customers and your feedback means alot to us. 
 					</p>
 					<button class="welcome-btn" onclick="window.location.href='products'">View all products</button>
+					<button class="welcome-btn" onclick="window.location.href='reviews'">Leave a feedback</button>
+					<button class="welcome-btn" onclick="window.location.href='#clients-say'">View all feedback</button>
 				</div>
 			</div>
 
@@ -214,7 +216,7 @@
 								</div>
 								<h2><a href="#">insurance support</a></h2>
 								<p>
-									BrainsTech provide insurance for products purchased from them to customers as part of their services, Terms and conditions applied. Our services are always authentic..  
+									BrainsTech provide insurance for products purchased from them to customers as part of their services, Terms and conditions applied.  
 								</p>
 							</div>
 						</div>
@@ -288,9 +290,11 @@
 										</div><!--/.testimonial-img-->
 									</div><!--/.testimonial-info-->
 									<div class="testimonial-comment">
+										{% if customer.customerGender == 'Female' %}
 										<p>
 											{{customer.customerMessage}} 
 										</p>
+										{% endif %}
 									</div><!--/.testimonial-comment-->
 									<div class="testimonial-person">
 										<h2><a href="#">{{customer.customerName}}</a></h2>

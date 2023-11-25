@@ -45,10 +45,12 @@
                             <p tabindex="0" class="focus:outline-none text-xs text-gray-600 mt-2">{{machine.machineDescription|truncatewords:15}}</p>
                             <div class="flex mt-4">
                                 <div class="w-full items-center">
-                                    <label class="cursor-pointer hover:opacity-80 inline-flex items-center shadow-md my-2 px-2 py-2 text-white bg-[#4e4ffa] border border-transparent
-                                        rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
-                                        <a tabindex="0"href="product_details/{{machine.id}}/{{machine.machineName}}">Checkout</a>
-                                    </label> 
+                                    <a tabindex="0"href="product_details/{{machine.id}}/{{machine.machineName}}">
+                                        <label class="cursor-pointer hover:opacity-80 inline-flex items-center shadow-md my-2 px-2 py-2 text-white bg-[#4e4ffa] border border-transparent
+                                            rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                                            Checkout
+                                        </label> 
+                                    </a>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between py-4">
